@@ -6,7 +6,14 @@ const state = {
   filmList: [], // 影片的集合
   filmPageNum: 1, // 影片页码
   filmPageSize: 10, // 影页每页的条数
-  filmFlag: false // 是否在请求影片
+  filmFlag: false, // 是否在请求影片
+  filmTotal: 20 // 影片的总条数
+}
+
+const getters = {
+  filmPageTotal (state) {
+    return Math.ceil(state.filmTotal / state.filmPageSize)
+  }
 }
 
 const mutations = {
@@ -27,6 +34,10 @@ const mutations = {
 
   setFilmFlag (state, bol) {
     state.filmFlag = bol
+  },
+
+  setFilmTotal (state, num) {
+    state.filmTotal = num
   }
 }
 
@@ -90,10 +101,11 @@ const actions = {
         'X-Host': 'mall.film-ticket.film.list'
       }
     }).then(res => {
-      console.log(res.data)
+    //   console.log(res.data)
       let result = res.data
       if (result.status === 0) {
         commit('setFilmList', result.data.films)
+        commit('setFilmTotal', result.data.total)
       } else {
         Toast('页面请求失败，请刷新') // 提示框
       }
@@ -110,5 +122,6 @@ export default {
   namespaced: true,
   state,
   mutations,
-  actions
+  actions,
+  getters
 }

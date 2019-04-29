@@ -3,7 +3,7 @@
     <div class="nowPlayingList-wrap">
       <ul>
         <li class="item"
-        v-for="item in filmList"
+        v-for="item in Comming"
         :key="item.filmId">
           <a href="#/film/4480">
             <div class="img">
@@ -29,33 +29,54 @@
                 <span class="label">{{ item.nation }} | {{ item.runtime }}分钟</span>
               </div>
             </div>
-            <div class="buy">购票</div>
+            <div class="buy" v-if="item.isPresale">预购</div>
           </a>
         </li>
       </ul>
-      <p v-if="filmFlag">加载中<van-loading color="white" /></p>
-      <p v-else class="jiazai">
-          到底了...
-      </p>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
-  computed: {
-    ...mapState('film', [
-      'filmList',
-      'filmPageNum',
-      'filmFlag'
-    ]),
-    ...mapGetters('film', [
-      'filmPageTotal'
-    ])
+
+  data () {
+    return {
+      Comming: []    
+    }
   },
 
+//   computed: {
+//     ...mapState('film', [
+//       'filmList'
+//     ])
+//   },
+
   methods: {
+    getComming () {
+      axios.get('https://m.maizuo.com/gateway', {
+      params: {
+        cityId: 310100,
+        pageNum: 1,
+        pageSize: 10,
+        type: 2,
+        k: 9047130
+      },
+      headers: {
+        'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"15547251162095944040867"}',
+        'X-Host': 'mall.film-ticket.film.list'
+      }
+    }).then(res => {
+      console.log(res.data)
+      this.Comming = res.data.data.films
+    //   if (result.status === 0) {
+    //   } else {
+    //     Toast('页面请求失败，请刷新') // 提示框
+    //   }
+    })  
+    }
     // ...mapActions('film', [
     //     'getFilmList'
     // ]),
@@ -77,11 +98,11 @@ export default {
       tmp = value.map(item => item.name)
       return tmp.join('、')
     }
-  }
+  },
 
-//   created () {
-//     this.getFilmList()
-//   }
+  created () {
+    this.getComming()
+  }
 }
 </script>
 
@@ -194,9 +215,5 @@ export default {
       }
     }
   }
-}
-
-.jiazai{
-  text-align: center;
 }
 </style>

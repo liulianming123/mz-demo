@@ -11,7 +11,9 @@
       <van-tab title="正在热映">
         <NowPlaying></NowPlaying>
       </van-tab>
-      <van-tab title="即将上映">内容 2</van-tab>
+      <van-tab title="即将上映">
+        <ComingSoon></ComingSoon>
+      </van-tab>
     </van-tabs>
 
   </div>
@@ -21,10 +23,12 @@
 import { mapActions, mapState } from 'vuex'
 import NowPlaying from '../../components/NowPlaying.vue'
 import { setInterval } from 'timers'
+import ComingSoon from '../../components/ComingSoon.vue'
 export default {
 
   components: {
-    NowPlaying
+    NowPlaying,
+    ComingSoon
   },
 
   data () {
