@@ -15,15 +15,15 @@ export default new VueRouter({
       path: '/',
       component: Index,
       children: [
-        { path: 'film', name: 'films', component: Film, meta: { tabNumber: 0 } },
+        { path: 'film/:filmType', name: 'films', component: Film, meta: { tabNumber: 0 } },
         { path: 'cinema', name: 'cinemas', component: Cinema, meta: { tabNumber: 1 } },
         { path: 'sale', name: 'sales', component: Sale, meta: { tabNumber: 2 } },
         { path: 'center', name: 'centers', component: Center, meta: { tabNumber: 3 } },
-        { path: '', redirect: '/film' }
+        { path: '', redirect: '/film/nowPlaying' }
       ]
     },
     { path: 'city', name: 'centers', component: City },
     // { path: '/detail/:id', name: 'detail', component: () => import('../views/detail/Index.vue') },
-    { path: '*', redirect: '/film' }
+    { path: '*', redirect: '/film/nowPlaying' }
   ]
 })
