@@ -1,0 +1,211 @@
+{
+    "_data": {
+        "brandList": [
+            {
+                "brandId": "-1",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/static\/pc\/1001\/img\/logo-color\/mid-0.png",
+                "brandName": "\u70ed\u95e8"
+            },
+            {
+                "brandId": "1",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/123 (21).png",
+                "brandName": "\u534e\u4e3a",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "8",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/123 (22).png",
+                "brandName": "\u8363\u8000",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "2",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/\u4e3b\u98751_05.png",
+                "brandName": "\u82f9\u679c",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "7",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/\u4e3b\u98751_14.png",
+                "brandName": "\u5c0f\u7c73",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "5",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/95-1.jpg",
+                "brandName": "OPPO",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "3",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/\u4e3b\u98751_09.png",
+                "brandName": "\u4e09\u661f",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "9",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/\u4e3b\u98751_18.png",
+                "brandName": "vivo",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "10",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/123 (26).png",
+                "brandName": "\u9b45\u65cf",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "11",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/\u4e3b\u98751_22.png",
+                "brandName": "\u9177\u6d3e",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "13",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/95.png",
+                "brandName": "\u91d1\u7acb",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "14",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/123 (2).png",
+                "brandName": "\u4e50\u89c6",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "12",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/123 (30).png",
+                "brandName": "\u8054\u60f3",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "17",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/6.png",
+                "brandName": "\u7d22\u5c3c",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "16",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/123 (1).png",
+                "brandName": "HTC",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "15",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/\u4e3b\u98751_25.png",
+                "brandName": "\u8bfa\u57fa\u4e9a",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "18",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/123 (7).png",
+                "brandName": "\u4e2d\u5174",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "22",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/13.png",
+                "brandName": "360",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "20",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/123 (8).png",
+                "brandName": "\u7f8e\u56fe",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "19",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/pc2.jpg",
+                "brandName": "\u52aa\u6bd4\u4e9a",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "21",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/Artboard 2 Copy 5.png",
+                "brandName": "\u9524\u5b50",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "23",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/Artboard 2 Copy 6.png",
+                "brandName": "\u4e00\u52a0",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "24",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/123 (11).png",
+                "brandName": "\u6469\u6258\u7f57\u62c9",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "25",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/\u5fae\u4fe1\u56fe\u7247_20170725142100.png",
+                "brandName": "LG",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            },
+            {
+                "brandId": "26",
+                "brandLogo": "https:\/\/s1.huishoubao.com\/img\/phone\/9595.png",
+                "brandName": "\u4e2d\u56fd\u79fb\u52a8",
+                "activityText": "",
+                "activityIcon": "",
+                "activityDesc": ""
+            }
+        ],
+        "pageInfo": {
+            "pageIndex": "1",
+            "pageSize": "100",
+            "total": 25,
+            "totalPage": 1
+        }
+    },
+    "_errCode": "0",
+    "_errStr": "\u6210\u529f"
+}

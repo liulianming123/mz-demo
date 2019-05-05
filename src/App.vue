@@ -6,4 +6,7 @@
 
 <style lang="less">
 @import url('../src/style/base.less');
+body,#app{
+  height: 667px
+}
 </style>

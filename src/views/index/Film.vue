@@ -1,7 +1,11 @@
 <template>
   <div class="home-fulm">
+    <router-link to="/city" class="city-fixed">
+      <span>深圳</span>
+      <i class="iconfont icon-xiala"></i>
+    </router-link>
 
-    <van-swipe :autoplay="3000" indicator-color="black" :height="210">
+    <van-swipe :autoplay="2000" indicator-color="black" :height="210">
       <van-swipe-item v-for="banner in bannerList" :key="banner.bannerId">
         <img :src="banner.imgUrl" alt="banner">
       </van-swipe-item>
@@ -20,9 +24,9 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 import NowPlaying from '../../components/NowPlaying.vue'
-import { setInterval } from 'timers'
+// import { setInterval } from 'timers'
 import ComingSoon from '../../components/ComingSoon.vue'
 export default {
 
@@ -41,14 +45,19 @@ export default {
   },
 
   computed: {
-    ...mapState ('film', [
+    ...mapState('film', [
       'bannerList',
-      'filmFlag'
+      'filmFlag',
+      'filmPageNum'
+    ]),
+
+    ...mapGetters('film', [
+      'filmPageTotal'
     ])
   },
 
   methods: {
-    ...mapActions ('film', [
+    ...mapActions('film', [
       'getBannerList',
       'getFilmList'
     ]),
@@ -78,10 +87,10 @@ export default {
       }
 
       // 公式 可视区的高度 + 滚动条距离顶部的高度 === 页面的高度 触底了
-      if(clientHeight + top >= (bodyHeight - 20) ){
-        //到底了，再次加载请求getfilmList，请求下一页
+      if (clientHeight + top >= (bodyHeight - 20)) {
+        // 到底了，再次加载请求getfilmList，请求下一页
         // 定一个 flag false时发请求， true时不发
-        if(!this.filmFlag){
+        if (!this.filmFlag && this.filmPageNum <= this.filmPageTotal) {
           this.getFilmList()
         }
       }
@@ -118,4 +127,23 @@ export default {
     }
   }
 }
+
+.city-fixed {
+    position: absolute;
+    top: 18px;
+    left: 7px;
+    color: #fff;
+    z-index: 10;
+    font-size: 13px;
+    background: rgba(0,0,0,.2);
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    padding: 0 5px;
+
+    i {
+      font-size: 10px;
+    }
+  }
 </style>

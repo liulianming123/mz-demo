@@ -5,7 +5,7 @@
         <li class="item"
         v-for="item in filmList"
         :key="item.filmId">
-          <a href="#/film/4480">
+          <router-link :to="'/films/' + item.filmId">
             <div class="img">
               <img
                 :src="item.poster"
@@ -30,7 +30,7 @@
               </div>
             </div>
             <div class="buy">购票</div>
-          </a>
+          </router-link>
         </li>
       </ul>
       <p v-if="filmFlag">加载中<van-loading color="white" /></p>
@@ -66,7 +66,7 @@ export default {
     //   actors.forEach(item => {
     //     str += item.name
     //   })
-    //   return str  
+    //   return str
     // }
   },
 
@@ -84,7 +84,6 @@ export default {
 //   }
 }
 </script>
-
 
 <style lang="less">
 @import '../style/common/mixins.less';

@@ -1,81 +1,80 @@
 <template>
   <div class="film-list-content">
     <div class="nowPlayingList-wrap">
-      <ul>
-        <li class="item"
-        v-for="item in Comming"
-        :key="item.filmId">
-          <a href="#/film/4480">
-            <div class="img">
-              <img
-                :src="item.poster"
-                alt
-              >
-            </div>
-            <div class="info">
-              <div class="film-name info-col">
-                <span class="name">{{ item.name }}</span>
-                <span class="item">{{ item.timeType }}D</span>
+        <ul>
+          <li class="item" v-for="item in Comming" :key="item.filmId">
+            <router-link :to="{ name: 'filmDetail', params: { filmId: item.filmId}}">
+              <div class="img">
+                <img :src="item.poster" alt>
               </div>
-              <div class="film-grade info-col" style="visibility: visible;">
-                <span class="label">观众评分</span>
-                <span class="grade">{{ item.grade }}</span>
+              <div class="info">
+                <div class="film-name info-col">
+                  <span class="name">{{ item.name }}</span>
+                  <span class="item">{{ item.timeType }}D</span>
+                </div>
+                <div class="film-grade info-col" style="visibility: visible;">
+                  <span class="label">观众评分</span>
+                  <span class="grade">{{ item.grade }}</span>
+                </div>
+                <div class="film-actors info-col">
+                  <!-- <span class="label">主演：{{ getActors(item.actors) }}</span> -->
+                  <span class="label">主演：{{ item.actors | formatActors }}</span>
+                </div>
+                <div class="film-detail info-col">
+                  <span class="label">{{ item.nation }} | {{ item.runtime }}分钟</span>
+                </div>
               </div>
-              <div class="film-actors info-col">
-                <!-- <span class="label">主演：{{ getActors(item.actors) }}</span> -->
-                <span class="label">主演：{{ item.actors | formatActors }}</span>
-              </div>
-              <div class="film-detail info-col">
-                <span class="label">{{ item.nation }} | {{ item.runtime }}分钟</span>
-              </div>
-            </div>
-            <div class="buy" v-if="item.isPresale">预购</div>
-          </a>
-        </li>
-      </ul>
+              <div class="buy" v-if="item.isPresale">预购</div>
+            </router-link>
+          </li>
+        </ul>
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 export default {
-
   data () {
     return {
-      Comming: []    
+      Comming: [],
+      loading: false,
+      finished: false
     }
   },
 
-//   computed: {
-//     ...mapState('film', [
-//       'filmList'
-//     ])
-//   },
+  //   computed: {
+  //     ...mapState('film', [
+  //       'filmList'
+  //     ])
+  //   },
 
   methods: {
     getComming () {
-      axios.get('https://m.maizuo.com/gateway', {
-      params: {
-        cityId: 310100,
-        pageNum: 1,
-        pageSize: 10,
-        type: 2,
-        k: 9047130
-      },
-      headers: {
-        'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"15547251162095944040867"}',
-        'X-Host': 'mall.film-ticket.film.list'
-      }
-    }).then(res => {
-      console.log(res.data)
-      this.Comming = res.data.data.films
-    //   if (result.status === 0) {
-    //   } else {
-    //     Toast('页面请求失败，请刷新') // 提示框
-    //   }
-    })  
+      axios
+        .get('https://m.maizuo.com/gateway', {
+          params: {
+            cityId: 310100,
+            pageNum: 1,
+            pageSize: 10,
+            type: 2,
+            k: 9047130
+          },
+          headers: {
+            'X-Client-Info':
+              '{"a":"3000","ch":"1002","v":"5.0.4","e":"15547251162095944040867"}',
+            'X-Host': 'mall.film-ticket.film.list'
+          }
+        })
+        .then(res => {
+          console.log(res.data)
+          this.Comming = res.data.data.films
+          //   if (result.status === 0) {
+          //   } else {
+          //     Toast('页面请求失败，请刷新') // 提示框
+          //   }
+        })
     }
     // ...mapActions('film', [
     //     'getFilmList'
@@ -87,7 +86,7 @@ export default {
     //   actors.forEach(item => {
     //     str += item.name
     //   })
-    //   return str  
+    //   return str
     // }
   },
 
@@ -106,9 +105,8 @@ export default {
 }
 </script>
 
-
 <style lang="less">
-@import '../style/common/mixins.less';
+@import "../style/common/mixins.less";
 
 .film-list-content {
   ul {
