@@ -1,12 +1,13 @@
 <template>
-  <div id="app">
+  <div id="aaa">
     <router-view></router-view>
   </div>
 </template>
 
 <style lang="less">
-@import url('../src/style/base.less');
-body,#app{
-  height: 667px
+@import "../src/style/base.less";
+#aaa{
+  font-size: 14px;
+  height: 100%;
 }
 </style>

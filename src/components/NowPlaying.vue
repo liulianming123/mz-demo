@@ -33,8 +33,8 @@
           </router-link>
         </li>
       </ul>
-      <p v-if="filmFlag">加载中<van-loading color="white" /></p>
-      <p v-else class="jiazai">
+      <p v-if="filmFlag" style="font-size:16px">加载中<van-loading color="white" /></p>
+      <p v-else class="jiazai" style="font-size:16px">
           到底了...
       </p>
     </div>

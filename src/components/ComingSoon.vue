@@ -120,6 +120,7 @@ export default {
       box-sizing: content-box;
 
       > a {
+        font-size: 16px;
         display: flex;
         align-items: center;
       }

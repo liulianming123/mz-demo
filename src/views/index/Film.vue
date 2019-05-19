@@ -1,11 +1,11 @@
 <template>
   <div class="home-fulm">
     <router-link to="/city" class="city-fixed">
-      <span>深圳</span>
+      <span>{{ curCity }}</span>
       <i class="iconfont icon-xiala"></i>
     </router-link>
 
-    <van-swipe :autoplay="2000" indicator-color="black" :height="210">
+    <van-swipe :autoplay="2000" indicator-color="black">
       <van-swipe-item v-for="banner in bannerList" :key="banner.bannerId">
         <img :src="banner.imgUrl" alt="banner">
       </van-swipe-item>
@@ -53,6 +53,10 @@ export default {
 
     ...mapGetters('film', [
       'filmPageTotal'
+    ]),
+
+    ...mapState('city', [
+      "curCity"
     ])
   },
 
@@ -119,6 +123,8 @@ export default {
 <style lang="less">
 .van-swipe-item img {
   height: 100%;
+  width: 100%;
+  display: block;
 }
 .mz-tabs {
   &.fixed {

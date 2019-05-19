@@ -1,6 +1,14 @@
 <template>
-  <div>
+  <div id="aaa">
     <div class="main city-list">
+     <van-nav-bar
+  title="标题"
+  left-text="返回"
+  right-text="按钮"
+  left-arrow
+  @click-left="$router.back()"
+/>
+
       <div class="lv-indexlist">
         <ul class="lv-indexlist__content" id="lv-indexlist__content">
           <div class="recommend-city">
@@ -15,40 +23,99 @@
             <div class="hot-city">
               <div class="city-index-title">热门城市</div>
               <ul class="city-index-detail">
-                <li class="city-item-detail">
-                  <div class="city-item-text">上海</div>
+                <li class="city-item-detail" 
+                v-for="item in hotCity"
+                :key="item.cityId"
+                @click="chgCurCity(item.name)">
+                  <div class="city-item-text">{{ item.name }}</div>
                 </li>
-                <li class="city-item-detail">
+                <!-- <li class="city-item-detail">
                   <div class="city-item-text">天津</div>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
-          <li class="lv-indexsection">
-            <p class="lv-indexsection__index">A</p>
+          <li class="lv-indexsection"
+          v-for="item in newCityList"
+          :key="item.name"
+          :id="'box-'+ item.name"
+          :ref="'box-'+item.name"
+          >
+            <p class="lv-indexsection__index">{{ item.name }}</p>
             <ul>
-              <li>安庆</li>
-              <li>安阳</li>
-              <li>安阳</li>
-              <li>安阳</li>
+              <li v-for="city in item.citys"
+              :key="city.cityId"
+              @click="fn2(city.name)"
+              >{{ city.name }}</li>
             </ul>
           </li>
         </ul>
         <div class="lv-indexlist__nav">
           <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-            <li>D</li>
-            <li>E</li>
-            <li>F</li>
-            <li>G</li>
+            <li v-for="py in pys"
+            :key="py"
+            @click="fn1(py)"
+            >{{ py }}</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import { mapState, mapActions, mapGetters, mapMutations } from 'vuex'
+export default {
+  name: 'city',
+  computed : {
+    ...mapState('city',[
+      'cityList'
+    ]),
+
+    ...mapGetters('city', [
+      'newCityList',
+      'pys',
+      'hotCity'
+    ])
+  },
+
+  methods: {
+    ...mapActions ('city', [
+      'getCityList'
+    ]),
+    fn1 (py) {
+      console.log(py)
+      // let boxEl = document.getElementById('box-' + py)
+      // let top = boxEl.offsetTop
+
+      // document.getElementById('lv-indexlist__content').scrollTop = top
+
+      // 除了id还可以使用ref特性来定义元素的标记，后续使用￥refs 这个实例属性去获取她
+      let boxEl = this.$refs['box-'+ py][0]
+      console.log(boxEl)
+      let top = boxEl.offsetTop
+
+      document.getElementById('lv-indexlist__content').scrollTop = top
+    },
+
+    ...mapMutations('city', [
+      'chgCurCity'
+    ]),
+    // 切换选择城市
+    fn2(city) {
+      this.chgCurCity(city)
+      this.$router.back()
+    }
+  },
+
+  created() {
+    this.getCityList()
+  }
+}
+</script>
+
+
+
 
 <style lang="less">
 @import ".../../../../style/common/mixins.less";
@@ -57,7 +124,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding-top: 44px;
+  box-sizing: border-box;
 
   .lv-indexlist {
     width: 100%;
@@ -94,6 +161,7 @@
         padding-left: 15px;
         height: 30px;
         line-height: 30px;
+        font-size: 12px;
       }
 
       ul {
@@ -111,6 +179,7 @@
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
+          font-size: 12px;
         }
       }
     }
