@@ -1,7 +1,7 @@
 <template>
   <div class="detail_main">
       <div class="return_detail">
-          <router-link to="/films">👀</router-link>
+          <a @click="$router.back()">👀</a>
       </div>
       <div class="detail_img">
           <img :src="deailList.poster">

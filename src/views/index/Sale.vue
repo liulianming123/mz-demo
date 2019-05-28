@@ -23,37 +23,38 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
-import BScroll from 'better-scroll'
+import { mapState, mapActions } from "vuex";
+import BScroll from "better-scroll";
 export default {
-  data () {
-    return {}
+  data() {
+    return {};
   },
   computed: {
-    ...mapState('phone', ['brandList', 'curBrandId', 'productList'])
+    ...mapState("phone", ["brandList", "curBrandId", "productList"])
     // 切换品牌 当前要切换的品牌id
     // change (id)
     // }
   },
 
   methods: {
-    ...mapActions('phone', ['getBrandList', 'getProductList', 'change']),
-    fn2 (id) { // 传值给brandId
+    ...mapActions("phone", ["getBrandList", "getProductList", "change"]),
+    fn2(id) {
+      // 传值给brandId
       this.$router.replace({
-        name: 'sales',
+        name: "sales",
         params: {
           brandId: id
         }
-      })
+      });
     }
   },
 
-  created () {
-    console.log(this.$route.params.brandId)
-    this.getBrandList()
-    let curBrandId = this.$route.params.brandId
+  created() {
+    console.log(this.$route.params.brandId);
+    this.getBrandList();
+    let curBrandId = this.$route.params.brandId;
     // this.getProductList()
-    this.change(curBrandId)
+    this.change(curBrandId);
   },
 
   // mounted () {
@@ -64,13 +65,13 @@ export default {
   //   new BScroll('.product')
   // },
 
-  beforeRouteUpdate (to, from, next) {
+  beforeRouteUpdate(to, from, next) {
     // 因为组件被复用，导致 created不会被执行
-    next()
-    let curBrandId = this.$route.params.brandId
-    this.change(curBrandId)
+    next();
+    let curBrandId = this.$route.params.brandId;
+    this.change(curBrandId);
   }
-}
+};
 </script>
 
 <style lang="less">
@@ -101,7 +102,7 @@ export default {
       font-weight: bold;
     }
 
-    ul{
+    ul {
       height: 620px;
       overflow: auto;
       position: absolute;
@@ -115,7 +116,7 @@ export default {
     height: 620px;
     overflow-y: auto;
 
-    ul{
+    ul {
       overflow: hidden;
     }
 

@@ -29,6 +29,8 @@
       <van-cell icon="gold-coin-o" title="我的优惠券" is-link />
       <van-cell icon="gift-o" title="我收到的礼物" is-link />
     </van-cell-group>
+
+    <div id="demo">aa </div>
   </div>
 </template>
 
@@ -41,6 +43,27 @@ export default {
     [Icon.name]: Icon,
     [Cell.name]: Cell,
     [CellGroup.name]: CellGroup
+  },
+
+  methods: {
+    getposition(){
+       var x=document.getElementById("demo");
+        navigator.geolocation.getCurrentPosition(
+     	function(position){
+         alert(22)
+     		console.log(position)
+     		x.innerHTML= position.coords.longitude +"纬度"+ position.coords.latitude 
+     		alert(position.coords.longitude)
+     	},
+     	function(error){
+         alert(11)
+       }
+     )
+    }
+  },
+
+  mounted(){
+    this.getposition()
   }
 }
 </script>

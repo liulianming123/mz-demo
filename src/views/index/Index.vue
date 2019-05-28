@@ -4,14 +4,16 @@
       enter-active-class="animated fadeInUp"
       leave-active-class="animated fadeOutDown"
       mode="out-in">
+     <keep-alive include="films">
     <router-view></router-view>
+     </keep-alive>
         </transition>
     <!-- Tabbar -->
     <van-tabbar class="my-tabbar" v-model="active">
       <van-tabbar-item icon="home-o" :to="{name: 'films', params: { filmType:'nowPlaying' }}">电影</van-tabbar-item>
       <van-tabbar-item icon="wap-nav" to="/cinema">影院</van-tabbar-item>
       <van-tabbar-item icon="shopping-cart" :to="{ name: 'sales', params: { brandId: '-1'} }">特惠</van-tabbar-item>
-      <van-tabbar-item icon="shopping-cart" to="/center">我的</van-tabbar-item>
+      <van-tabbar-item icon="shopping-cart" to="/list">我的</van-tabbar-item>
       <van-tabbar-item icon="shopping-cart" to="/home">主页</van-tabbar-item>
     </van-tabbar>
   </div>

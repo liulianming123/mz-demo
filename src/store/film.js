@@ -90,7 +90,7 @@ const actions = {
 
     axios.get('https://m.maizuo.com/gateway', {
       params: {
-        cityId: 310100,
+        cityId: 110100,
         pageNum: state.filmPageNum,
         pageSize: state.filmPageSize,
         type: 1,

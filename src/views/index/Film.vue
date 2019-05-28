@@ -56,7 +56,7 @@ export default {
     ]),
 
     ...mapState('city', [
-      "curCity"
+      'curCity'
     ])
   },
 

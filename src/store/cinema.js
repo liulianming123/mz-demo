@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const state = {
   cinameList: [], // 影院列表
-  cinameName: [] // 影院名字
+  cinameName: [],
+  cityId: localStorage.getItem('cityId') || 120100 // 影院名字
 }
 
 const getters = {
@@ -15,13 +16,17 @@ const mutations = {
   },
   getCinameName (state, list) {
     state.cinameName = list
+  },
+  getcityId (state, cityId) {
+    localStorage.setItem('cityId', cityId)
+    state.cityId = cityId
   }
 }
 const actions = {
   getCinemaList ({ commit }) {
     axios.get('https://m.maizuo.com/gateway', {
       params: {
-        cityId: 440300,
+        cityId: state.cityId,
         ticketFlag: 1,
         k: 5706429
       },
@@ -31,14 +36,14 @@ const actions = {
       }
     }).then(res => {
       if (res.data.status === 0) {
-        console.log(res.data.data)
+        // console.log(res.data.data)
         commit('setCinameList', res.data.data)
         let str = res.data.data.cinemas
         console.log(str)
         let strs = str.map(item => {
           return item.name
         })
-        console.log(strs)
+        // console.log(strs)
         commit('getCinameName', strs)
       } else {
         alert('请求失败')

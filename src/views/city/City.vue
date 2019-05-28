@@ -23,7 +23,7 @@
             <div class="hot-city">
               <div class="city-index-title">热门城市</div>
               <ul class="city-index-detail">
-                <li class="city-item-detail" 
+                <li class="city-item-detail"
                 v-for="item in hotCity"
                 :key="item.cityId"
                 @click="chgCurCity(item.name)">
@@ -45,7 +45,7 @@
             <ul>
               <li v-for="city in item.citys"
               :key="city.cityId"
-              @click="fn2(city.name)"
+              @click="fn2(city.name,city.cityId)"
               >{{ city.name }}</li>
             </ul>
           </li>
@@ -67,8 +67,8 @@
 import { mapState, mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'city',
-  computed : {
-    ...mapState('city',[
+  computed: {
+    ...mapState('city', [
       'cityList'
     ]),
 
@@ -80,7 +80,7 @@ export default {
   },
 
   methods: {
-    ...mapActions ('city', [
+    ...mapActions('city', [
       'getCityList'
     ]),
     fn1 (py) {
@@ -91,7 +91,7 @@ export default {
       // document.getElementById('lv-indexlist__content').scrollTop = top
 
       // 除了id还可以使用ref特性来定义元素的标记，后续使用￥refs 这个实例属性去获取她
-      let boxEl = this.$refs['box-'+ py][0]
+      let boxEl = this.$refs['box-' + py][0]
       console.log(boxEl)
       let top = boxEl.offsetTop
 
@@ -101,21 +101,22 @@ export default {
     ...mapMutations('city', [
       'chgCurCity'
     ]),
+    ...mapMutations('cinema', [
+      'getcityId'
+    ]),
     // 切换选择城市
-    fn2(city) {
+    fn2 (city, cityId) {
       this.chgCurCity(city)
-      this.$router.back()
+      this.$router.push({path:'film'})
+      this.getcityId(cityId)
     }
   },
 
-  created() {
+  created () {
     this.getCityList()
   }
 }
 </script>
-
-
-
 
 <style lang="less">
 @import ".../../../../style/common/mixins.less";

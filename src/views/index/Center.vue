@@ -2,7 +2,7 @@
     <div id="main_one">
       <div @click="isShow = !isShow" class="yue"></div>
       <transition
-      enter-active-class="animated bounceIn  myfast delay-1s"
+      enter-active-class="animated bounceIn  myfast delay-3s"
       appear
       >
         <h1 v-if="isShow" class="night">晚安<br><b style="font-size:14px">愿你一生被善待</b></h1>
@@ -56,7 +56,7 @@ export default {
   },
 
   mounted () {
-    // setInterval(this.createStar, 1000)
+    setInterval(this.createStar, 1000)
   }
 }
 </script>
